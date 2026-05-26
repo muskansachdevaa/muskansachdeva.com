@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muskan Portfolio | Home</title>
+  <title>Muskan Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f14;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 0, 102, .18), transparent 35%), radial-gradient(circle at bottom left, rgba(255, 255, 255, .08), transparent 30%);
+      z-index: -1;
+    }
+
+    h1,
+    h2,
+    h3,
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-weight: 400;
+    }
+
+    .navbar {
+      width: min(92%, 980px);
+      position: fixed;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 12px 10px 22px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .06));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 999px;
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .28), inset 0 1px 0 rgba(255, 255, 255, .18);
+      animation: slideDown .7s ease both;
+      transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .navbar:hover {
+      border-color: rgba(255, 255, 255, .28);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .36), inset 0 1px 0 rgba(255, 255, 255, .22);
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      letter-spacing: .02em;
+      line-height: 1;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+      transition: transform .3s ease, background .3s ease;
+    }
+
+    .logo:hover {
+      background: rgba(255, 255, 255, .14);
+      transform: translateY(-1px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+      align-items: center;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(15, 15, 20, .36);
+      border: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: .95rem;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s ease, color .3s ease, transform .3s ease, box-shadow .3s ease;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .22), transparent);
+      transform: translateX(-120%);
+      transition: transform .5s ease;
+    }
+
+    .nav-links a:hover {
+      background: linear-gradient(135deg, #ff2d75, #ff6a88);
+      box-shadow: 0 10px 24px rgba(255, 45, 117, .28);
+      transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::before {
+      transform: translateX(120%);
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/cover.jpg') center/cover no-repeat;
+      filter: blur(8px);
+      transform: scale(1.1);
+      opacity: .45;
+      z-index: -2;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 15, 20, .55);
+      z-index: -1;
+    }
+
+    .hero {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 60px;
+      align-items: center;
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      animation: fadeUp .85s ease .15s both;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text span {
+      color: #ff2d75;
+      display: inline-block;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    .hero-text p {
+      color: #e5e5e5;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .28), transparent);
+      transform: translateX(-130%);
+      transition: transform .55s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn:hover::after {
+      transform: translateX(130%);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #ff2d75, #ff6a88);
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(255, 45, 117, .24);
+    }
+
+    .primary:hover {
+      box-shadow: 0 22px 44px rgba(255, 45, 117, .34);
+    }
+
+    .secondary {
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: #fff;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .secondary:hover {
+      border-color: rgba(255, 255, 255, .32);
+      background: rgba(255, 255, 255, .1);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, .26);
+    }
+
+    .hero-image img,
+    .card img,
+    .about img {
+      width: 100%;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+      transition: transform .5s ease, box-shadow .5s ease, filter .5s ease;
+    }
+
+    .hero-image img {
+      max-width: 420px;
+      animation: floatIn .95s ease .28s both, softFloat 5s ease-in-out 1.3s infinite;
+    }
+
+    .hero-image img:hover,
+    .about img:hover {
+      animation-play-state: paused;
+      filter: saturate(1.08) contrast(1.04);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, .42);
+    }
+
+    section {
+      padding: 100px 8%;
+      scroll-margin-top: 110px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: fadeUp .75s ease both;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      overflow: hidden;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      position: relative;
+      animation: fadeUp .75s ease both;
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .18), transparent 38%);
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, .07);
+      border-color: rgba(255, 255, 255, .2);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, .34);
+      transform: translateY(-8px);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card img {
+      height: 420px;
+      display: block;
+    }
+
+    .card:hover img {
+      transform: scale(1.06);
+      filter: saturate(1.08);
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .follow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .social-card {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border-radius: 24px;
+      text-decoration: none;
+      color: #fff;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .75s ease both;
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease;
+    }
+
+    .social-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 45, 117, .24), transparent 45%);
+      opacity: 0;
+      transition: opacity .35s ease;
+    }
+
+    .social-card:hover {
+      background: rgba(255, 255, 255, .09);
+      border-color: rgba(255, 255, 255, .22);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, .32);
+      transform: translateY(-8px);
+    }
+
+    .social-card:hover::before {
+      opacity: 1;
+    }
+
+    .social-card span,
+    .social-card strong {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social-card span {
+      color: #b5b5b5;
+      font-size: .92rem;
+      font-weight: 500;
+    }
+
+    .social-card strong {
+      font-size: 1.3rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
+      align-items: center;
+      animation: fadeUp .75s ease both;
+    }
+
+    .about img {
+      max-width: 360px;
+      justify-self: center;
+    }
+
+    .about h2 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #e5e5e5;
+      line-height: 1.85;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 46px 8%;
+      color: #b5b5b5;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      transition: color .3s ease, border-color .3s ease;
+    }
+
+    footer:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    .newsletter {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .newsletter input {
+      width: min(280px, 48vw);
+      border: 0;
+      outline: 0;
+      color: #fff;
+      background: transparent;
+      padding: 12px 10px 12px 16px;
+      font: inherit;
+    }
+
+    .newsletter input::placeholder {
+      color: #b5b5b5;
+    }
+
+    .newsletter button {
+      border: 0;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(135deg, #ff2d75, #ff6a88);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 600;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .newsletter button:hover {
+      box-shadow: 0 14px 28px rgba(255, 45, 117, .3);
+      transform: translateY(-2px);
+    }
+
+    .sr-only {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -18px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes softFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        text-shadow: 0 0 0 rgba(255, 45, 117, 0);
+      }
+      50% {
+        text-shadow: 0 0 28px rgba(255, 45, 117, .45);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        width: calc(100% - 28px);
+        top: 14px;
+        justify-content: center;
+        padding: 8px 10px;
+        gap: 10px;
+      }
+
+      .logo {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 4px;
+        padding: 4px;
+      }
+
+      .nav-links a {
+        padding: 9px 10px;
+        font-size: .8rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2.8rem;
+      }
+
+      footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .newsletter {
+        width: 100%;
+      }
+
+      .newsletter input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Muskan</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#follow">Follow</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Hello, I'm <span>Muskan</span></h1>
+        <p>Confident, ambitious, and passionate about fashion and creativity.</p>
+        <div class="buttons">
+          <a href="#gallery" class="btn primary">View Gallery</a>
+          <a href="#about" class="btn secondary">About Me</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/ZbjB7.jpg" alt="Hero">
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="about">
+      <img src="assets/beach.png" alt="About Muskan">
+      <div>
+        <h2>About Me</h2>
+        <p>Confident, ambitious, and passionate about fashion and creativity. </br>A 25-year-old aspiring model who loves expressing personality through style, photography, and runway presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Featured Gallery</h2>
+      <p>Exclusive Images</p>
+    </div>
+    <div class="gallery">
+      <div class="card">
+        <img src="assets/ZbjB7.jpg" alt="Elegant Style">
+      </div>
+      <div class="card">
+        <img src="assets/w7ovw.jpg" alt="Golden Hour">
+      </div>
+      <div class="card">
+        <img src="assets/rrE8Y.jpg" alt="Soft Portrait">
+      </div>
+      <div class="card">
+        <img src="assets/fjP1N(1).jpg" alt="Modern Look">
+      </div>
+    </div>
+  </section>
+
+  <section id="follow">
+    <div class="section-title">
+      <h2>Follow Me</h2>
+      <p>Stay connected across my social media profiles</p>
+    </div>
+    <div class="follow-grid">
+      <a class="social-card" href="#" aria-label="Follow Muskan on Facebook">
+        <span>Facebook</span>
+        <strong>@MuskanSachdeva</strong>
+      </a>
+      <a class="social-card" href="#" aria-label="Follow Muskan on Instagram">
+        <span>Instagram</span>
+        <strong>@muskan.sachdevaa</strong>
+      </a>
+      <a class="social-card" href="#" aria-label="Subscribe to Muskan on YouTube">
+        <span>YouTube</span>
+        <strong>@MuskanSachdeva</strong>
+      </a>
+      <a class="social-card" href="#" aria-label="Follow Muskan on Snapchat">
+        <span>Snapchat</span>
+        <strong>@muskan.snap</strong>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Muskan Portfolio</p>
+    <form class="newsletter" action="#" method="post">
+      <label class="sr-only" for="newsletter-email">Email address</label>
+      <input id="newsletter-email" type="email" name="email" placeholder="Enter email for updates" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+</body>
+</html>
